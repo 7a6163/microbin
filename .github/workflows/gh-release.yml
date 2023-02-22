@@ -92,7 +92,7 @@ jobs:
         target: ${{ matrix.target }}
         toolchain: stable
         profile: minimal # minimal component installation (ie, no documentation)
-  
+
     - name: Show Version Information (Rust, cargo, GCC)
       shell: bash
       run: |
@@ -102,7 +102,7 @@ jobs:
         rustup default
         cargo -V
         rustc -V
-      
+
     - name: Build
       uses: actions-rs/cargo@v1
       with:
@@ -144,7 +144,7 @@ jobs:
         fi
 
     - name: Publish Archive
-      uses: softprops/action-gh-release@v0.1.5
+      uses: softprops/action-gh-release@v0.1.15
       if: ${{ startsWith(github.ref, 'refs/tags/') }}
       with:
         draft: false
